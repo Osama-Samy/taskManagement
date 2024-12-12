@@ -3,6 +3,8 @@ import userRouter from "./src/modules/user/user.routes.js"
 import taskRouter from "./src/modules/task/task.routes.js"
 
 import { connectDB } from "./database/dbConn.js"
+import dotenv from 'dotenv'
+dotenv.config()
 
 
 const app = express()
