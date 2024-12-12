@@ -14,7 +14,7 @@ app.use(express.json())
 app.use("/user", userRouter)
 app.use("/task", taskRouter)
 app.get("/", (req, res) => {
-    res.send("hello")
+    res.send("Hello World")
 })
 
 app.use("*", (req, res) => {
