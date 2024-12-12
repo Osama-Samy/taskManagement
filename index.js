@@ -1,7 +1,7 @@
 import express from "express"
 import userRouter from "./src/modules/user/user.routes.js"
 import taskRouter from "./src/modules/task/task.routes.js"
-
+import cors from "cors"
 import { connectDB } from "./database/dbConn.js"
 import dotenv from 'dotenv'
 dotenv.config()
