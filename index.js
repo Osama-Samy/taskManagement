@@ -13,6 +13,9 @@ app.use(express.json())
 
 app.use("/user", userRouter)
 app.use("/task", taskRouter)
+app.get("/", (req, res) => {
+    res.send("hello")
+})
 
 app.use("*", (req, res) => {
     res.send("Not Found")
