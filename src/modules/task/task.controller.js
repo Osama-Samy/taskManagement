@@ -39,11 +39,11 @@ const updateTask = async (req, res) => {
     }
 
     try {
-    let task = await Task.findById(req.params.id)
+    let task = await Task.findById(req.params.taskId)
     if (task.user.toString() !== req.userId) {
         return res.status(400).send({message: "You can't update this task"})
     }
-    task = await Task.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    task = await Task.findByIdAndUpdate(req.params.taskId, req.body, {new: true})
     res.send(task)
     }
     catch (error) {
@@ -53,11 +53,11 @@ const updateTask = async (req, res) => {
 
 const deleteTask = async (req, res) => {
     try {
-    let task = await Task.findById(req.params.id)
+    let task = await Task.findById(req.params.taskId)
     if (task.user.toString() !== req.userId) {
         return res.status(400).send({message: "You can't delete this task"})    
     }
-    await Task.findByIdAndDelete(req.params.id)    
+    await Task.findByIdAndDelete(req.params.taskId)    
     res.send({message: "Task deleted successfully"})
     }
     catch (error) {
@@ -67,11 +67,11 @@ const deleteTask = async (req, res) => {
 
 const updateStatus = async (req, res) => {
     try {
-    let task = await Task.findById(req.params.id)
+    let task = await Task.findById(req.params.taskId)
     if (task.user.toString() !== req.userId) {
         return res.status(400).send({message: "You can't update this task"})    
     }
-    task = await Task.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    task = await Task.findByIdAndUpdate(req.params.taskId, req.body, {new: true})
     res.send(task)
     }
     catch (error) {
