@@ -10,6 +10,7 @@ const addTask = async (req, res) => {
 
     try {
     let task = new Task(req.body)
+    task.user = req.userId
     await task.save()
     res.send({message: "Task added successfully"})
     }
